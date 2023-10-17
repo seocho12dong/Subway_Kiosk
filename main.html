@@ -1,192 +1,401 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <title>Subway_Main</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
+  <meta charset="UTF-8">
+  <title>Subway_Main</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
 
-        a {
-            text-decoration: none; /* 모든 링크에 밑줄 없애기 */
-            color: inherit;
-        }
+    a {
+      text-decoration: none; /* 모든 링크에 밑줄 없애기 */
+      color: inherit;
+    }
 
-        .menu_bar {
-            position: fixed;
-            left: 0;
-            top: 0;
-            padding: 10px;
-            border-right: 1px solid #ccc;
-            height: 100%;
-            width: 200px;
-            display: flex; /* Flexbox 레이아웃 사용 */
-            flex-direction: column; /* 세로로 정렬 */
-            justify-content: flex-start; /* 맨 위 정렬 */
-            align-items: center; /* 버튼을 수직 가운데 정렬 */
-            z-index: 2;
-        }
+    .menu_bar {
+      position: fixed;
+      left: 0;
+      top: 0;
+      padding: 10px;
+      border-right: 1px solid #ccc;
+      height: 100%;
+      width: 200px;
+      display: flex; /* Flexbox 레이아웃 사용 */
+      flex-direction: column; /* 세로로 정렬 */
+      justify-content: flex-start; /* 맨 위 정렬 */
+      align-items: center; /* 버튼을 수직 가운데 정렬 */
+      z-index: 2;
+    }
 
-        .menu_button {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+    .menu_button {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-        .menu_button img {
-            width: 80%;
-        }
+    .menu_button img {
+      width: 80%;
+    }
 
-        .button {
-            width: 100%;
-            height: 100%;
-            margin: 5px;
-        }
+    .button {
+      width: 100%;
+      height: 100%;
+      margin: 5px;
+    }
 
-        .charge_bar {
-            background-color: #2E3238;
-            color: yellow;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            padding: 10px;
-            width: 100%;
-            height: 60px;
-            z-index: 3;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+    .charge_bar {
+      background-color: #2E3238;
+      color: yellow;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      padding: 10px;
+      width: 100%;
+      height: 60px;
+      z-index: 3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-        .charge_bar_button-style {
-            font-size: 30px;
-            background-color: #2E3238;
-            color: yellow;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            top: 20%;
-            position: absolute;
-        }
+    .charge_bar_button-style {
+      font-size: 30px;
+      background-color: #2E3238;
+      color: yellow;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      top: 20%;
+      position: absolute;
+    }
 
-        .charge_bar .return_button {
-            left: 5%;
-        }
+    .charge_bar .return_button {
+      left: 5%;
+    }
 
-        .charge_bar .payment_button {
-            right: 5%;
-        }
+    .charge_bar .basket_button {
+      right: 20%;
+    }
 
-        .main_content {
-            margin-left: 250px; /* 메뉴 바의 너비만큼 왼쪽 마진 추가 */
-            padding: 20px;
-        }
+    .charge_bar .payment_button {
+      right: 5%;
+    }
 
-        img {
-            width: 90%;
-        }
+    .main_content {
+      margin-left: 250px; /* 메뉴 바의 너비만큼 왼쪽 마진 추가 */
+      padding: 20px;
+    }
 
-        td {
-            width: 0.1%;
-            color: #009506;
-            text-align: center;
-            font-size: 25px;
 
-            height: 300px;
-        }
-    </style>
+    .product-popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      z-index: 9998;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      width: 800px; /* 너비를 400px로 설정 (조절 가능) */
+      height: 900px; /* 높이를 300px로 설정 (조절 가능) */
+      display: none;
+    }
+
+    .product-basket {
+      position: fixed;
+      top : 50%;
+      left : 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      z-index: 9999;
+      padding : 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      width: 800px; /* 너비를 400px로 설정 (조절 가능) */
+      height: 900px; /* 높이를 300px로 설정 (조절 가능) */
+      display: none;
+    }
+
+    .product-details {
+      text-align: center;
+    }
+
+    #close-popup {
+      display: block;
+      margin-top: 10px;
+    }
+
+
+    img {
+      width: 90%;
+    }
+
+    td {
+      width: 0.1%;
+      color: #009506;
+      text-align: center;
+      font-size: 25px;
+
+      height: 300px;
+    }
+  </style>
 </head>
 <body>
 <div class="charge_bar">
-    <div>
-        <button class="return_button charge_bar_button-style"><a href="index.html">초기화면</a></button>
-        <button class="payment_button charge_bar_button-style">결제하기</button>
-    </div>
+  <div>
+    <button class="return_button charge_bar_button-style"><a href="index.html">초기화면</a></button>
+    <button class="basket_button charge_bar_button-style">장바구니</button>
+    <button class="payment_button charge_bar_button-style">결제하기</button>
+  </div>
 </div>
 <div class="menu_bar">
-    <div class="menu_button">
-        <button class="sandwich_button"><a class="special-link button"><img src="images/sandwich.png"><br>샌드위치</a></button>
-        <button class="salad_button" data-target="salad_table"><img src="images/salad.png"><br>샐러드</button>
-        <button class="lab_button" data-target="lab_table"><img src="images/lab.png"><br>랩/기타</button>
-        <button class="beverage_button" data-target="beverage_table"><img src="images/beverage.png"><br>사이드 & 음료</button>
-    </div>
+  <div class="menu_button">
+    <button class="sandwich_button"><a class="special-link button"><img src="images/sandwich.png"><br>샌드위치</a></button>
+    <button class="salad_button" data-target="salad_table"><img src="images/salad.png"><br>샐러드</button>
+    <button class="lab_button" data-target="lab_table"><img src="images/lab.png"><br>랩/기타</button>
+    <button class="beverage_button" data-target="beverage_table"><img src="images/beverage.png"><br>사이드 & 음료</button>
+  </div>
 </div>
 <div class="main_content">
-    <table id="sandwich_table">
-        <tbody>
-        <tr><td><img src="images/sandwich/sandwich_eggmayo.png"><br>4,900</td><td><img src="images/sandwich/sandwich_italianBMT.png"><br>6,100</td><td><img src="images/sandwich/sandwich_BLT.png"><br>6,000</td></tr>
-        <tr><td><img src="images/sandwich/sandwich_chickenDeriyaki.png"><br>6,400</td><td><img src="images/sandwich/sandwich_chickenBaconAbocado.png"><br>7,400</td><td><img src="images/sandwich/sandwich_bbq.png"><br>6,700</td></tr>
-        <tr><td><img src="images/sandwich/sandwich_chickenSlice.png"><br>5,900</td><td><img src="images/sandwich/sandwich_club.png"><br>6,500</td><td><img src="images/sandwich/sandwich_ham.png"><br>5,200</td></tr>
-        <tr><td><img src="images/sandwich/sandwich_hamEggCheese.png"><br>7,400</td><td><img src="images/sandwich/sandwich_porkBBQ.png"><br>6,600</td><td><img src="images/sandwich/sandwich_roastedChicken.png"><br>6,700</td></tr>
-        <tr><td><img src="images/sandwich/sandwich_shrimp.png"><br>6,500</td><td><img src="images/sandwich/sandwich_spicyItalian.png"><br>6,300</td><td><img src="images/sandwich/sandwich_SteakCheese.png"><br>7,400</td></tr>
-        <tr><td><img src="images/sandwich/sandwich_vegi.png"><br>4,400</td><td><img src="images/sandwich/sandwich_westernEggCheese.png"><br>6,700</td></tr>
-        </tbody>
-    </table>
-    <table id="salad_table" style="display: none">
-        <tbody>
-        <tr><td><img src="images/salad/salad_BBQChicken.png"><br>8,400</td><td><img src="images/salad/salad_BLT.png"><br>7,700</td><td><img src="images/salad/salad_ChickenBaconAbocado.png"><br>9,100</td></tr>
-        <tr><td><img src="images/salad/salad_chickenDeriyaki.png"><br>8,100</td><td><img src="images/salad/salad_chickenSlice.png"><br>7,600</td><td><img src="images/salad/salad_club.png"><br>8,200</td></tr>
-        <tr><td><img src="images/salad/salad_eggMayo.png"><br>6,600</td><td><img src="images/salad/salad_fulledBBQ.png"><br>8,300</td><td><img src="images/salad/salad_ham.png"><br>6,900</td></tr>
-        <tr><td><img src="images/salad/salad_italianBMT.png"><br>7,800</td><td><img src="images/salad/salad_KBBQ.png"><br>8,400</td><td><img src="images/salad/salad_newShrimp.png"><br>8,400</td></tr>
-        <tr><td><img src="images/salad/salad_RoastedChicken.png"><br>8,200</td><td><img src="images/salad/salad_spicyItalian.png"><br>8,000</td><td><img src="images/salad/salad_spicyShrimp.png"><br>8,200</td></tr>
-        <tr><td><img src="images/salad/salad_steakCheese.png"><br>9,100</td><td><img src="images/salad/salad_tuna.png"><br>6,900</td><td><img src="images/salad/salad_vegi.png"><br>6,100</td></tr>
-        </tbody>
-    </table>
-    <table id="lab_table" style="display: none">
-        <tbody>
-        <tr><td><img src="images/wrap/wrap_chickenBaconMini.png"><br>3,400</td><td><img src="images/wrap/wrap_shrimpEggMayo.png"><br>5,300</td><td><img src="images/wrap/wrap_steakCheeseAvocado.png"><br>6,000</td></tr>
-        </tbody>
-    </table>
-    <table id="beverage_table" style="display: none">
-        <tbody>
-        <tr><td><img src="images/beverage/beverage_soda.png"><br>2,000</td><td><img src="images/beverage/beverage_coffee.png"><br>2,000</td><td><img src="images/beverage/beverage_hashBrown.png"><br>1,800</td></tr>
-        <tr><td><img src="images/beverage/beverage_cheesy.png"><br>2,400</td><td><img src="images/beverage/beverage_cheesybacon.png"><br>2,700</td><td><img src="images/beverage/beverage_chip.png"><br>2,200</td></tr>
-        <tr><td><img src="images/beverage/beverage_chip_chocolate.png"><br>1,300</td><td><img src="images/beverage/beverage_chip_doubleChocolate.png"><br>1,300</td><td><img src="images/beverage/beverage_chip_oatmealRaisin.png"><br>1,300</td></tr>
-        <tr><td><img src="images/beverage/beverage_chip_raspberryCheese.png"><br>1,300</td><td><img src="images/beverage/beverage_chip_whiteChocoMacadamia.png"><br>1,300</td><td><img src="images/beverage/beverage_soup_bakedPotato.png"><br>3,200</td></tr>
-        <tr><td><img src="images/beverage/beverage_soup_broccoliCheddar.png"><br>3,200</td><td><img src="images/beverage/beverage_soup_mushroom.png"><br>3,200</td>
-        </tbody>
-    </table>
+  <table id="sandwich_table">
+    <tbody>
+    <tr>
+      <td><img src="images/sandwich/sandwich_eggmayo.png" data-product="sandwich_eggmayo"><br>4,900</td>
+      <td><img src="images/sandwich/sandwich_italianBMT.png" data-product="sandwich_italianBMT"><br>6,100</td>
+      <td><img src="images/sandwich/sandwich_BLT.png" data-product="sandwich_BLT"><br>6,000</td>
+    </tr>
+    <tr>
+      <td><img src="images/sandwich/sandwich_chickenDeriyaki.png" data-product="sandwich_chickenDeriyaki"><br>6,400</td>
+      <td><img src="images/sandwich/sandwich_chickenBaconAbocado.png" data-product="sandwich_chickenBaconAbocado"><br>7,400</td>
+      <td><img src="images/sandwich/sandwich_bbq.png" data-product="sandwich_bbq"><br>6,700</td>
+    </tr>
+    <tr>
+      <td><img src="images/sandwich/sandwich_chickenSlice.png" data-product="sandwich_chickenSlice"><br>5,900</td>
+      <td><img src="images/sandwich/sandwich_club.png" data-product="sandwich_club"><br>6,500</td>
+      <td><img src="images/sandwich/sandwich_ham.png" data-product="sandwich_ham"><br>5,200</td>
+    </tr>
+    <tr>
+      <td><img src="images/sandwich/sandwich_hamEggCheese.png" data-product="sandwich_hamEggCheese"><br>7,400</td>
+      <td><img src="images/sandwich/sandwich_porkBBQ.png" data-product="sandwich_porkBBQ"><br>6,600</td>
+      <td><img src="images/sandwich/sandwich_roastedChicken.png" data-product="sandwich_roastedChicken"><br>6,700</td>
+    </tr>
+    <tr>
+      <td><img src="images/sandwich/sandwich_shrimp.png" data-product="sandwich_shrimp"><br>6,500</td>
+      <td><img src="images/sandwich/sandwich_spicyItalian.png" data-product="sandwich_spicyItalian"><br>6,300</td>
+      <td><img src="images/sandwich/sandwich_SteakCheese.png" data-product="sandwich_SteakCheese"><br>7,400</td>
+    </tr>
+    <tr>
+      <td><img src="images/sandwich/sandwich_vegi.png" data-product="sandwich_vegi"><br>4,400</td>
+      <td><img src="images/sandwich/sandwich_westernEggCheese.png" data-product="sandwich_westernEggCheese"><br>6,700</td>
+    </tr>
+    </tbody>
+  </table>
+  <table id="salad_table" style="display: none">
+    <tbody>
+    <tr>
+      <td><img src="images/salad/salad_BBQChicken.png" data-product="salad_BBQChicken"><br>8,400</td>
+      <td><img src="images/salad/salad_BLT.png" data-product="salad_BLT"><br>7,700</td>
+      <td><img src="images/salad/salad_ChickenBaconAbocado.png" data-product="salad_ChickenBaconAbocado"><br>9,100</td>
+    </tr>
+    <tr>
+      <td><img src="images/salad/salad_chickenDeriyaki.png" data-product="salad_chickenDeriyaki"><br>8,100</td>
+      <td><img src="images/salad/salad_chickenSlice.png" data-product="salad_chickenSlice"><br>7,600</td>
+      <td><img src="images/salad/salad_club.png" data-product="salad_club"><br>8,200</td>
+    </tr>
+    <tr>
+      <td><img src="images/salad/salad_eggMayo.png" data-product="salad_eggMayo"><br>6,600</td>
+      <td><img src="images/salad/salad_fulledBBQ.png" data-product="salad_fulledBBQ"><br>8,300</td>
+      <td><img src="images/salad/salad_ham.png" data-product="salad_ham"><br>6,900</td>
+    </tr>
+    <tr>
+      <td><img src="images/salad/salad_italianBMT.png" data-product="salad_italianBMT"><br>7,800</td>
+      <td><img src="images/salad/salad_KBBQ.png" data-product="salad_KBBQ"><br>8,400</td>
+      <td><img src="images/salad/salad_newShrimp.png" data-product="salad_newShrimp"><br>8,400</td>
+    </tr>
+    <tr>
+      <td><img src="images/salad/salad_RoastedChicken.png" data-product="salad_RoastedChicken"><br>8,200</td>
+      <td><img src="images/salad/salad_spicyItalian.png" data-product="salad_spicyItalian"><br>8,000</td>
+      <td><img src="images/salad/salad_spicyShrimp.png" data-product="salad_spicyShrimp"><br>8,200</td>
+    </tr>
+    <tr>
+      <td><img src="images/salad/salad_steakCheese.png" data-product="salad_steakCheese"><br>9,100</td>
+      <td><img src="images/salad/salad_tuna.png" data-product="salad_tuna"><br>6,900</td>
+      <td><img src="images/salad/salad_vegi.png" data-product="salad_vegi"><br>6,100</td>
+    </tr>
+    </tbody>
+  </table>
+  <table id="lab_table" style="display: none">
+    <tbody>
+    <tr>
+      <td><img src="images/wrap/wrap_chickenBaconMini.png" data-product="wrap_chickenBaconMini"><br>3,400</td>
+      <td><img src="images/wrap/wrap_shrimpEggMayo.png" data-product="wrap_shrimpEggMayo"><br>5,300</td>
+      <td><img src="images/wrap/wrap_steakCheeseAvocado.png" data-product="wrap_steakCheeseAvocado"><br>6,000</td>
+    </tr>
+    </tbody>
+  </table>
+  <table id="beverage_table" style="display: none">
+    <tbody>
+    <tr>
+      <td><img src="images/beverage/beverage_soda.png" data-product="beverage_soda"><br>2,000</td>
+      <td><img src="images/beverage/beverage_coffee.png" data-product="beverage_coffee"><br>2,000</td>
+      <td><img src="images/beverage/beverage_hashBrown.png" data-product="beverage_hashBrown"><br>1,800</td>
+    </tr>
+    <tr>
+      <td><img src="images/beverage/beverage_cheesy.png" data-product="beverage_cheesy"><br>2,400</td>
+      <td><img src="images/beverage/beverage_cheesybacon.png" data-product="beverage_cheesybacon"><br>2,700</td>
+      <td><img src="images/beverage/beverage_chip.png" data-product="beverage_chip"><br>2,200</td>
+    </tr>
+    <tr>
+      <td><img src="images/beverage/beverage_chip_chocolate.png" data-product="beverage_chip_chocolate"><br>1,300</td>
+      <td><img src="images/beverage/beverage_chip_doubleChocolate.png" data-product="beverage_chip_doubleChocolate"><br>1,300</td>
+      <td><img src="images/beverage/beverage_chip_oatmealRaisin.png" data-product="beverage_chip_oatmealRaisin"><br>1,300</td>
+    </tr>
+    <tr>
+      <td><img src="images/beverage/beverage_chip_raspberryCheese.png" data-product="beverage_chip_raspberryCheese"><br>1,300</td>
+      <td><img src="images/beverage/beverage_chip_whiteChocoMacadamia.png" data-product="beverage_chip_whiteChocoMacadamia"><br>1,300</td>
+      <td><img src="images/beverage/beverage_soup_bakedPotato.png" data-product="beverage_soup_bakedPotato"><br>3,200</td>
+    </tr>
+    <tr>
+      <td><img src="images/beverage/beverage_soup_broccoliCheddar.png" data-product="beverage_soup_broccoliCheddar"><br>3,200</td>
+      <td><img src="images/beverage/beverage_soup_mushroom.png" data-product="beverage_soup_mushroom"><br>3,200</td>
+    </tr>
+    </tbody>
+  </table>
 </div>
+<div class="product-popup">
+  <div class="product-details">
+    <h2 id="product-name"></h2>
+    <p id="product-price"></p>
+    <button id="add-to-cart">장바구니에 담기</button>
+  </div>
+  <button id="close-popup">닫기</button>
+</div>
+<div class="product-basket">
+  <button id="close-basket">닫기</button>
+  <div id="basket-items"></div>
+  <div id="total-price"></div>
+</div>
+
+
+
 <script>
-    const sandwichButton = document.querySelector('.sandwich_button');
-    const saladButton = document.querySelector('.salad_button');
-    const labButton = document.querySelector('.lab_button');
-    const beverageButton = document.querySelector('.beverage_button');
-    const sandwichTable = document.getElementById('sandwich_table');
-    const saladTable = document.getElementById('salad_table');
-    const labTable = document.getElementById('lab_table');
-    const beverageTable = document.getElementById('beverage_table');
+  const cart = [];
 
-    sandwichButton.addEventListener('click', () => {
-        sandwichTable.style.display = 'table';
-        saladTable.style.display = 'none';
-        labTable.style.display = 'none';
-        beverageTable.style.display = 'none';
-    });
+  // "장바구니" 버튼 클릭 시 장바구니 팝업을 나타냄
+  document.querySelector('.basket_button').addEventListener('click', function() {
+    showShoppingCart();
+  });
 
-    saladButton.addEventListener('click', () => {
-        saladTable.style.display = 'table';
-        sandwichTable.style.display = 'none';
-        beverageTable.style.display = 'none';
-        labTable.style.display = 'none';
-    });
+  // "닫기" 버튼 클릭 시 장바구니 팝업을 숨김
+  document.querySelector('#close-basket').addEventListener('click', function() {
+    hideShoppingCart();
+  });
 
-    labButton.addEventListener('click', () => {
-        labTable.style.display = 'table';
-        saladTable.style.display = 'none';
-        sandwichTable.style.display = 'none';
-        beverageTable.style.display = 'none';
-    })
+  function showShoppingCart() {
+    const basketPopup = document.querySelector('.product-basket');
+    basketPopup.style.display = 'block';
 
-    beverageButton.addEventListener('click', () => {
-        beverageTable.style.display = 'table';
-        saladTable.style.display = 'none';
-        sandwichTable.style.display = 'none';
-        labTable.style.display = 'none';
-    } )
+    // 장바구니 내용을 업데이트하고 합계 가격을 계산하여 표시
+    const basketItems = document.querySelector('#basket-items');
+    const totalPrice = document.querySelector('#total-price');
+    basketItems.innerHTML = ''; // 장바구니 내용 초기화
+
+    let total = 0;
+
+    for (const item of cart) {
+      total += item.price;
+      const itemElement = document.createElement('div');
+      itemElement.textContent = item.name + ': ' + item.price + '원';
+      basketItems.appendChild(itemElement);
+    }
+
+    totalPrice.textContent = '합계: ' + total + '원';
+  }
+
+  function hideShoppingCart() {
+    document.querySelector('.product-basket').style.display = 'none';
+  }
+
+  // JSON 처리
+  function loadProducts() {
+    fetch('products.json')
+            .then(response => response.json())
+            .then(productsData => {
+              var imageElements = document.querySelectorAll('#sandwich_table img, #salad_table img, #lab_table img, #beverage_table img');
+              imageElements.forEach(function(img) {
+                img.addEventListener('click', function(event) {
+                  var productName = event.target.dataset.product;
+                  var productInfo = productsData[productName];
+                  if (productInfo) {
+                    var productName = productInfo.name;
+                    var productPrice = productInfo.price;
+
+                    document.getElementById('product-name').textContent = productName;
+                    document.getElementById('product-price').textContent = '가격: ' + productPrice + '원';
+
+                    // "장바구니에 담기" 버튼 클릭 시
+                    document.getElementById('add-to-cart').addEventListener('click', function() {
+                      cart.push({
+                        name: productName,
+                        price: productPrice
+                      });
+                      alert('장바구니에 제품이 추가되었습니다.');
+                    });
+
+                    document.querySelector('.product-popup').style.display = 'block';
+                  }
+                });
+              });
+            })
+  }
+
+  // 플로팅 창 닫기 버튼
+  document.querySelector('#close-popup').addEventListener('click', function() {
+    document.querySelector('.product-popup').style.display = 'none';
+  });
+
+  // products.json 파일을 불러와서 제품 정보를 처리
+  loadProducts();
+
+
+  const sandwichButton = document.querySelector('.sandwich_button');
+  const saladButton = document.querySelector('.salad_button');
+  const labButton = document.querySelector('.lab_button');
+  const beverageButton = document.querySelector('.beverage_button');
+  const sandwichTable = document.getElementById('sandwich_table');
+  const saladTable = document.getElementById('salad_table');
+  const labTable = document.getElementById('lab_table');
+  const beverageTable = document.getElementById('beverage_table');
+
+  sandwichButton.addEventListener('click', () => {
+    sandwichTable.style.display = 'table';
+    saladTable.style.display = 'none';
+    labTable.style.display = 'none';
+    beverageTable.style.display = 'none';
+  });
+
+  saladButton.addEventListener('click', () => {
+    saladTable.style.display = 'table';
+    sandwichTable.style.display = 'none';
+    beverageTable.style.display = 'none';
+    labTable.style.display = 'none';
+  });
+
+  labButton.addEventListener('click', () => {
+    labTable.style.display = 'table';
+    saladTable.style.display = 'none';
+    sandwichTable.style.display = 'none';
+    beverageTable.style.display = 'none';
+  })
+
+  beverageButton.addEventListener('click', () => {
+    beverageTable.style.display = 'table';
+    saladTable.style.display = 'none';
+    sandwichTable.style.display = 'none';
+    labTable.style.display = 'none';
+  } )
 </script>
 </body>
 </html>

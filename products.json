@@ -1,0 +1,210 @@
+{
+  "sandwich_eggmayo": {
+    "name": "에그마요",
+    "price": 4900
+  },
+  "sandwich_italianBMT": {
+    "name": "이탈리안 비엠티",
+    "price": 6100
+  },
+  "sandwich_BLT": {
+    "name": "비엘티",
+    "price": 6000
+  },
+  "sandwich_chickenDeriyaki": {
+    "name": "치킨 데리야끼",
+    "price": 6400
+  },
+  "sandwich_chickenBaconAbocado": {
+    "name": "치킨 베이컨 아보카도",
+    "price": 7400
+  },
+  "sandwich_bbq": {
+    "name": "로티세리 바비큐 치킨",
+    "price": 6700
+  },
+  "sandwich_chickenSlice": {
+    "name": "치킨 슬라이스",
+    "price": 5900
+  },
+  "sandwich_club": {
+    "name": "써브웨이 클럽",
+    "price": 6500
+  },
+  "sandwich_ham": {
+    "name": "햄",
+    "price": 5200
+  },
+  "sandwich_hamEggCheese": {
+    "name": "햄, 에그&치즈",
+    "price": 7400
+  },
+  "sandwich_porkBBQ": {
+    "name": "풀드 포크 바비큐",
+    "price": 6600
+  },
+  "sandwich_roastedChicken": {
+    "name": "로스트 치킨",
+    "price": 6700
+  },
+  "sandwich_shrimp": {
+    "name": "쉬림프",
+    "price": 6500
+  },
+  "sandwich_spicyItalian": {
+    "name": "스파이시 이탈리안",
+    "price": 6300
+  },
+  "sandwich_SteakCheese": {
+    "name": "스테이크&치즈",
+    "price": 7400
+  },
+  "sandwich_vegi": {
+    "name": "베지",
+    "price": 4400
+  },
+  "sandwich_westernEggCheese": {
+    "name": "웨스턴, 에그 & 치즈",
+    "price": 6700
+  },
+  "salad_BBQChicken": {
+    "name": "로티세리 바비큐 치킨",
+    "price": 8400
+  },
+  "salad_BLT": {
+    "name": "비엘티",
+    "price": 7700
+  },
+  "salad_ChickenBaconAbocado": {
+    "name": "치킨 베이컨 아보카도",
+    "price": 9100
+  },
+  "salad_chickenDeriyaki": {
+    "name": "치킨 데리야끼",
+    "price": 8100
+  },
+  "salad_chickenSlice": {
+    "name": "치킨 슬라이스",
+    "price": 7600
+  },
+  "salad_club": {
+    "name": "써브웨이 클럽",
+    "price": 8200
+  },
+  "salad_eggMayo": {
+    "name": "에그마요",
+    "price": 6600
+  },
+  "salad_fulledBBQ": {
+    "name": "풀드 포크 바비큐",
+    "price": 8300
+  },
+  "salad_ham": {
+    "name": "햄",
+    "price": 6900
+  },
+  "salad_italianBMT": {
+    "name": "이탈리안 비엠티",
+    "price": 7800
+  },
+  "salad_KBBQ": {
+    "name": "K-바비큐",
+    "price": 8400
+  },
+  "salad_newShrimp": {
+    "name": "New 쉬림프",
+    "price": 8400
+  },
+  "salad_RoastedChicken": {
+    "name": "로스트 치킨",
+    "price": 8200
+  },
+  "salad_spicyItalian": {
+    "name": "스파이시 이탈리안",
+    "price": 8000
+  },
+  "salad_spicyShrimp": {
+    "name": "New 스파이시 쉬림프",
+    "price": 8200
+  },
+  "salad_steakCheese": {
+    "name": "스테이크 & 치즈",
+    "price": 9100
+  },
+  "salad_tuna": {
+    "name": "참치",
+    "price": 6900
+  },
+  "salad_vegi": {
+    "name": "베지",
+    "price": 6100
+  },
+  "wrap_chickenBaconMini": {
+    "name": "치킨 베이컨 미니 랩",
+    "price": 3400
+  },
+  "wrap_shrimpEggMayo": {
+    "name": "쉬림프 에그마요 랩",
+    "price": 5300
+  },
+  "wrap_steakCheeseAvocado": {
+    "name": "스테이크 & 치즈 아보카도 랩",
+    "price": 6000
+  },
+  "beverage_soda": {
+    "name": "탄산음료",
+    "price": 2000
+  },
+  "beverage_coffee": {
+    "name": "커피",
+    "price": 2000
+  },
+  "beverage_hashBrown": {
+    "name": "해쉬브라운",
+    "price": 1800
+  },
+  "beverage_cheesy": {
+    "name": "웨지 포테이토",
+    "price": 2400
+  },
+  "beverage_cheesybacon": {
+    "name": "Bacon Cheesy 웨지 포테이토",
+    "price": 2700
+  },
+  "beverage_chip": {
+    "name": "칩",
+    "price": 2200
+  },
+  "beverage_chip_chocolate": {
+    "name": "초코칩",
+    "price": 1300
+  },
+  "beverage_chip_doubleChocolate": {
+    "name": "더블 초코칩",
+    "price": 1300
+  },
+  "beverage_chip_oatmealRaisin": {
+    "name": "오트밀 레이즌",
+    "price": 1300
+  },
+  "beverage_chip_raspberryCheese": {
+    "name": "라즈베리 치즈케익",
+    "price": 1300
+  },
+  "beverage_chip_whiteChocoMacadamia": {
+    "name": "화이트 초코 마카다미아",
+    "price": 1300
+  },
+  "beverage_soup_bakedPotato": {
+    "name": "베이크 포테이토 수프",
+    "price": 3200
+  },
+  "beverage_soup_broccoliCheddar": {
+    "name": "브로콜리 체다 수프",
+    "price": 3200
+  },
+  "beverage_soup_mushroom": {
+    "name": "머쉬룸 수프",
+    "price": 3200
+  }
+}
