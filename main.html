@@ -97,11 +97,48 @@
       transform: translate(-50%, -50%);
       background-color: #fff;
       z-index: 9998;
-      padding: 20px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
       width: 800px; /* 너비를 400px로 설정 (조절 가능) */
-      height: 900px; /* 높이를 300px로 설정 (조절 가능) */
+      height: 1000px; /* 높이를 300px로 설정 (조절 가능) */
       display: none;
+      border-radius: 20px 20px 20px 20px;
+    }
+
+    .product-popup-header {
+      position: fixed;
+      top: 0%;
+      left: 0%;
+      background-color: #009506;
+      width: 800px;
+      height: 70px;
+      padding: 0px;
+      border-radius: 20px 20px 0px 0px;
+    }
+
+    #product-popup_logo {
+      position: fixed;
+      background-color:rgba(0, 0, 0, 0);
+      left: 15px;
+      top: 10px;
+      width: 50px;
+      border: 0;
+    }
+
+    #close-popup {
+      position: fixed;
+      background-color:rgba(0, 0, 0, 0);
+      right: 3px;
+      top: -5px;
+      width: 65px;
+      border: 0;
+    }
+
+    #product-name {
+      position: fixed;
+      font-size: 40px;
+      left: 100px;
+      color: white;
+      top: 15px;
     }
 
     .product-basket {
@@ -127,6 +164,18 @@
       margin-top: 10px;
     }
 
+    #add-to-cart {
+      font-size: 30px;
+      background-color: #009506;
+      color: yellow;
+      display: flex;
+      justify-content: end;
+    }
+
+    #product-image {
+      width: 300px;
+      margin: 0 auto;
+    }
 
     img {
       width: 90%;
@@ -140,6 +189,7 @@
 
       height: 300px;
     }
+
   </style>
 </head>
 <body>
@@ -265,13 +315,18 @@
   </table>
 </div>
 <div class="product-popup">
+  <div class="product-popup-header">
+    <img id="product-popup_logo" src="images/subway_logo.png">
+    <h1 id="product-name"></h1>
+    <button id="close-popup"><img src="images/x.png"></button>
+  </div>
   <div class="product-details">
-    <h2 id="product-name"></h2>
     <p id="product-price"></p>
+    <img id="product-image" src="" alt="제품 이미지">
     <button id="add-to-cart">장바구니에 담기</button>
   </div>
-  <button id="close-popup">닫기</button>
 </div>
+
 <div class="product-basket">
   <button id="close-basket">닫기</button>
   <div id="basket-items"></div>
@@ -326,30 +381,41 @@
               var imageElements = document.querySelectorAll('#sandwich_table img, #salad_table img, #lab_table img, #beverage_table img');
               imageElements.forEach(function(img) {
                 img.addEventListener('click', function(event) {
+                  // console.log(event)
                   var productName = event.target.dataset.product;
+                  // console.log(productName)
                   var productInfo = productsData[productName];
                   if (productInfo) {
                     var productName = productInfo.name;
                     var productPrice = productInfo.price;
+                    var productImage = productInfo.img;
 
                     document.getElementById('product-name').textContent = productName;
                     document.getElementById('product-price').textContent = '가격: ' + productPrice + '원';
 
+                    document.getElementById('product-image').src = productImage;
+
                     // "장바구니에 담기" 버튼 클릭 시
-                    document.getElementById('add-to-cart').addEventListener('click', function() {
+
+                    function add() {
+                      // console.log(productName)
                       cart.push({
                         name: productName,
                         price: productPrice
                       });
                       alert('장바구니에 제품이 추가되었습니다.');
-                    });
-
+                      document.getElementById('add-to-cart').removeEventListener('click', add)
+                    }
+                    document.getElementById('add-to-cart').addEventListener('click', add)
+                    // console.log(document.getElementById('add-to-cart'))
                     document.querySelector('.product-popup').style.display = 'block';
                   }
                 });
               });
             })
   }
+
+
 
   // 플로팅 창 닫기 버튼
   document.querySelector('#close-popup').addEventListener('click', function() {
