@@ -90,6 +90,7 @@
     }
 
 
+    /*팝업창 관련 css*/
     .product-popup {
       position: fixed;
       top: 50%;
@@ -124,6 +125,17 @@
       border: 0;
     }
 
+    .product-popup-footer {
+      position: fixed;
+      bottom: 0%;
+      left: 0%;
+      background-color: #ffca06;
+      width: 800px;
+      height: 70px;
+      padding: 0px;
+      border-radius: 0px 0px 20px 20px;
+    }
+
     #close-popup {
       position: fixed;
       background-color:rgba(0, 0, 0, 0);
@@ -150,8 +162,8 @@
       z-index: 9999;
       padding : 20px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-      width: 800px; /* 너비를 400px로 설정 (조절 가능) */
-      height: 900px; /* 높이를 300px로 설정 (조절 가능) */
+      width: 800px;
+      height: 900px;
       display: none;
     }
 
@@ -166,15 +178,20 @@
 
     #add-to-cart {
       font-size: 30px;
-      background-color: #009506;
-      color: yellow;
-      display: flex;
-      justify-content: end;
+      width: 800px;
+      height: 80px;
+      background-color: #ffca06;
+      border: 0;
+      cursor: pointer;
+      display: block; /* 이 스타일을 추가합니다. */
+      margin: 0 auto; /* 이 스타일을 추가합니다. */
+      border-radius: 0px 0px 20px 20px;
     }
 
     #product-image {
       width: 300px;
       margin: 0 auto;
+      margin-top: 100px;
     }
 
     img {
@@ -323,6 +340,28 @@
   <div class="product-details">
     <p id="product-price"></p>
     <img id="product-image" src="" alt="제품 이미지">
+  </div>
+  <div class="product-options">
+    <h2>옵션 선택</h2>
+    <label>
+      <input type="radio" name="bread" value="15cm">
+      15cm 빵
+    </label>
+    <label>
+      <input type="radio" name="bread" value="30cm">
+      30cm 빵
+    </label>
+    <br>
+    <label>
+      <input type="checkbox" name="cheese" value="cheese">
+      치즈 추가
+    </label>
+    <label>
+      <input type="checkbox" name="tomato" value="tomato">
+      토마토 추가
+    </label>
+  </div>
+  <div class="product-popup-footer">
     <button id="add-to-cart">장바구니에 담기</button>
   </div>
 </div>
