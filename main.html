@@ -3,213 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <title>Subway_Main</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-    }
-
-    a {
-      text-decoration: none; /* 모든 링크에 밑줄 없애기 */
-      color: inherit;
-    }
-
-    .menu_bar {
-      position: fixed;
-      left: 0;
-      top: 0;
-      padding: 10px;
-      border-right: 1px solid #ccc;
-      height: 100%;
-      width: 200px;
-      display: flex; /* Flexbox 레이아웃 사용 */
-      flex-direction: column; /* 세로로 정렬 */
-      justify-content: flex-start; /* 맨 위 정렬 */
-      align-items: center; /* 버튼을 수직 가운데 정렬 */
-      z-index: 2;
-    }
-
-    .menu_button {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .menu_button img {
-      width: 80%;
-    }
-
-    .button {
-      width: 100%;
-      height: 100%;
-      margin: 5px;
-    }
-
-    .charge_bar {
-      background-color: #2E3238;
-      color: yellow;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      padding: 10px;
-      width: 100%;
-      height: 60px;
-      z-index: 3;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .charge_bar_button-style {
-      font-size: 30px;
-      background-color: #2E3238;
-      color: yellow;
-      padding: 10px 20px;
-      border: none;
-      cursor: pointer;
-      display: flex;
-      top: 20%;
-      position: absolute;
-    }
-
-    .charge_bar .return_button {
-      left: 5%;
-    }
-
-    .charge_bar .basket_button {
-      right: 20%;
-    }
-
-    .charge_bar .payment_button {
-      right: 5%;
-    }
-
-    .main_content {
-      margin-left: 250px; /* 메뉴 바의 너비만큼 왼쪽 마진 추가 */
-      padding: 20px;
-    }
-
-
-    /*팝업창 관련 css*/
-    .product-popup {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: #fff;
-      z-index: 9998;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-      width: 800px; /* 너비를 400px로 설정 (조절 가능) */
-      height: 1000px; /* 높이를 300px로 설정 (조절 가능) */
-      display: none;
-      border-radius: 20px 20px 20px 20px;
-    }
-
-    .product-popup-header {
-      position: fixed;
-      top: 0%;
-      left: 0%;
-      background-color: #009506;
-      width: 800px;
-      height: 70px;
-      padding: 0px;
-      border-radius: 20px 20px 0px 0px;
-    }
-
-    #product-popup_logo {
-      position: fixed;
-      background-color:rgba(0, 0, 0, 0);
-      left: 15px;
-      top: 10px;
-      width: 50px;
-      border: 0;
-    }
-
-    .product-popup-footer {
-      position: fixed;
-      bottom: 0%;
-      left: 0%;
-      background-color: #ffca06;
-      width: 800px;
-      height: 70px;
-      padding: 0px;
-      border-radius: 0px 0px 20px 20px;
-    }
-
-    #close-popup {
-      position: fixed;
-      background-color:rgba(0, 0, 0, 0);
-      right: 3px;
-      top: -5px;
-      width: 65px;
-      border: 0;
-    }
-
-    #product-name {
-      position: fixed;
-      font-size: 40px;
-      left: 100px;
-      color: white;
-      top: 15px;
-    }
-
-    .product-basket {
-      position: fixed;
-      top : 50%;
-      left : 50%;
-      transform: translate(-50%, -50%);
-      background-color: white;
-      z-index: 9999;
-      padding : 20px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-      width: 800px;
-      height: 900px;
-      display: none;
-    }
-
-    .product-details {
-      text-align: center;
-    }
-
-    #close-popup {
-      display: block;
-      margin-top: 10px;
-    }
-
-    #add-to-cart {
-      font-size: 30px;
-      width: 800px;
-      height: 80px;
-      background-color: #ffca06;
-      border: 0;
-      cursor: pointer;
-      display: block; /* 이 스타일을 추가합니다. */
-      margin: 0 auto; /* 이 스타일을 추가합니다. */
-      border-radius: 0px 0px 20px 20px;
-    }
-
-    #product-image {
-      width: 300px;
-      margin: 0 auto;
-      margin-top: 100px;
-    }
-
-    img {
-      width: 90%;
-    }
-
-    td {
-      width: 0.1%;
-      color: #009506;
-      text-align: center;
-      font-size: 25px;
-
-      height: 300px;
-    }
-
-  </style>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
+<div class="header">
+  <img id="header_logo" src="images/subway_logo.png">
+  <img id="header_title" src="images/subway_title.png">
+</div>
 <div class="charge_bar">
   <div>
     <button class="return_button charge_bar_button-style"><a href="index.html">초기화면</a></button>
@@ -342,24 +142,121 @@
     <img id="product-image" src="" alt="제품 이미지">
   </div>
   <div class="product-options">
-    <h2>옵션 선택</h2>
-    <label>
-      <input type="radio" name="bread" value="15cm">
-      15cm 빵
-    </label>
-    <label>
-      <input type="radio" name="bread" value="30cm">
-      30cm 빵
-    </label>
-    <br>
-    <label>
-      <input type="checkbox" name="cheese" value="cheese">
-      치즈 추가
-    </label>
-    <label>
-      <input type="checkbox" name="tomato" value="tomato">
-      토마토 추가
-    </label>
+    <div class="product-options-header">
+      <h2 class="option_select_text">옵션 선택</h2>
+    </div>
+    <div class="breadOptions">
+      <div class="breadSizeLabel">
+        <label>
+          <input type="radio" name="breadSize" data-group="breadSize" value="15cm">
+          15cm
+        </label>
+        <label>
+          <input type="radio" name="breadSize" data-group="breadSize" value="30cm">
+          30cm (+4800)
+        </label>
+        <br>
+        <label>
+          <input type="radio" name="breadToasting" data-group="breadToasting" value="토스팅">
+          토스팅
+          <input type="radio" name="breadToasting" data-group="breadToasting" value="토스팅 안함">
+          토스팅 안함
+        </label>
+        <br>
+        <br>
+      </div>
+      <div class="breadLabel">
+        <label>
+          <input type="radio" name="bread" data-group="bread"  value="화이트">
+          화이트
+          <input type="radio" name="bread" data-group="bread"  value="플랫 브래드">
+          플랫 브래드
+          <input type="radio" name="bread" data-group="bread"  value="위트">
+          위트
+          <input type="radio" name="bread" data-group="bread"  value="하티">
+          하티
+          <input type="radio" name="bread" data-group="bread"  value="파마산오레가노">
+          파마산오레가노
+          <input type="radio" name="bread" data-group="bread"  value="허니오트">
+          허니오트
+        </label>
+        <br>
+        <br>
+      </div>
+    </div>
+    <div class="cheeseLabel">
+      <label>
+        <input type="radio" name="cheese" data-group="cheese"  value="아메리칸 치즈">
+        아메리칸 치즈
+        <input type="radio" name="cheese" data-group="cheese"  value="슈레드 치즈">
+        슈레드 치즈
+        <input type="radio" name="cheese" data-group="cheese"  value="모차렐라 치즈">
+        모차렐라 치즈
+      </label>
+      <br>
+      <br>
+    </div>
+    <div class="sauceLabel">
+      <label>
+        <input type="checkbox" name="sauce" data-group="sauce" value="기본소스">
+        기본소스
+        <input type="checkbox" name="sauce" data-group="sauce" value="렌치드레싱">
+        렌치드레싱
+        <input type="checkbox" name="sauce" data-group="sauce" value="마요네즈">
+        마요네즈
+        <input type="checkbox" name="sauce" data-group="sauce" value="스위트 어니언">
+        스위트 어니언
+        <input type="checkbox" name="sauce" data-group="sauce" value="허니 머스타드">
+        허니 머스타드
+        <input type="checkbox" name="sauce" data-group="sauce" value="스위트 칠리">
+        스위트 칠리
+        <br>
+        <input type="checkbox" name="sauce" data-group="sauce" value="핫 칠리">
+        핫 칠리
+        <input type="checkbox" name="sauce" data-group="sauce" value="사우스 웨스트">
+        사우스 웨스트
+        <input type="checkbox" name="sauce" data-group="sauce" value="머스타드">
+        머스타드
+        <input type="checkbox" name="sauce" data-group="sauce" value="홀스레디쉬">
+        홀스레디쉬
+        <input type="checkbox" name="sauce" data-group="sauce" value="올리브 오일">
+        올리브 오일
+        <input type="checkbox" name="sauce" data-group="sauce" value="레드와인식초">
+        레드와인식초
+        <br>
+        <input type="checkbox" name="sauce" data-group="sauce" value="소금">
+        소금
+        <input type="checkbox" name="sauce" data-group="sauce" value="후추">
+        후추
+        <input type="checkbox" name="sauce" data-group="sauce" value="스모크 바비큐">
+        스모크 바비큐
+      </label>
+      <br>
+      <br>
+    </div>
+    <div class="vegetableLabel">
+      <label>
+        <input type="checkbox" name="vegetable" data-group="vegetable" value="양상추 제외">
+        양상추 제외
+        <input type="checkbox" name="vegetable" data-group="vegetable" value="토마토 제외">
+        토마토 제외
+        <input type="checkbox" name="vegetable" data-group="vegetable" value="오이 제외">
+        오이 제외
+        <input type="checkbox" name="vegetable" data-group="vegetable" value="피망 제외">
+        피망 제외
+        <input type="checkbox" name="vegetable" data-group="vegetable" value="양파 제외">
+        양파 제외
+        <input type="checkbox" name="vegetable" data-group="vegetable" value="피클 제외">
+        피클 제외
+        <br>
+        <input type="checkbox" name="vegetable" data-group="vegetable" value="올리브 제외">
+        올리브 제외
+        <input type="checkbox" name="vegetable" data-group="vegetable" value="할라피뇨 제외">
+        할라피뇨 제외
+      </label>
+      <br>
+      <br>
+    </div>
   </div>
   <div class="product-popup-footer">
     <button id="add-to-cart">장바구니에 담기</button>
@@ -367,9 +264,14 @@
 </div>
 
 <div class="product-basket">
-  <button id="close-basket">닫기</button>
+  <div class="product-basket-header">
+    <img id="product-basket_logo" src="images/subway_logo.png">
+    <button id="close-basket"><img src="images/x.png"></button>
+  </div>
   <div id="basket-items"></div>
-  <div id="total-price"></div>
+  <div class="product-basket-footer">
+    <div id="total-price"></div>
+  </div>
 </div>
 
 
@@ -401,7 +303,7 @@
     for (const item of cart) {
       total += item.price;
       const itemElement = document.createElement('div');
-      itemElement.textContent = item.name + ': ' + item.price + '원';
+      itemElement.textContent = `${item.name} (${item.options}): ${item.price}원`;
       basketItems.appendChild(itemElement);
     }
 
@@ -438,9 +340,64 @@
 
                     function add() {
                       // console.log(productName)
+                      const selectedOptions = {
+                        breadSize: [],
+                        breadToasting: [],
+                        bread: [],
+                        cheese: [],
+                        sauce: [],
+                        vegetable: []
+                      };
+
+                      const breadSizeRadios = document.querySelectorAll('input[name="breadSize"]');
+                      breadSizeRadios.forEach((radio) => {
+                        if (radio.checked) {
+                          selectedOptions.breadSize.push(radio.value);
+                        }
+                      });
+
+                      const breadToastingRadios = document.querySelectorAll('input[name="breadToasting"]');
+                      breadToastingRadios.forEach((radio) => {
+                        if (radio.checked) {
+                          selectedOptions.breadToasting.push(radio.value);
+                        }
+                      });
+
+                      const breadRadios = document.querySelectorAll('input[name="bread"]');
+                      breadRadios.forEach((radio) => {
+                        if (radio.checked) {
+                          selectedOptions.bread.push(radio.value);
+                        }
+                      });
+
+                      const cheeseRadios = document.querySelectorAll('input[name="cheese"]');
+                      cheeseRadios.forEach((radio) => {
+                        if (radio.checked) {
+                          selectedOptions.cheese.push(radio.value);
+                        }
+                      });
+
+                      const sauceCheckboxes = document.querySelectorAll('input[name="sauce"]');
+                      sauceCheckboxes.forEach((checkbox) => {
+                        if (checkbox.checked) {
+                          selectedOptions.sauce.push(checkbox.value);
+                        }
+                      });
+
+                      const vegetableCheckboxes = document.querySelectorAll('input[name="vegetable"]');
+                      vegetableCheckboxes.forEach((checkbox) => {
+                        if (checkbox.checked) {
+                          selectedOptions.vegetable.push(checkbox.value);
+                        }
+                      });
+
+                      const selectedOptionsString = Object.values(selectedOptions).filter(Boolean).join(', ');
+
+
                       cart.push({
                         name: productName,
-                        price: productPrice
+                        price: productPrice,
+                        options: selectedOptionsString
                       });
                       alert('장바구니에 제품이 추가되었습니다.');
                       document.getElementById('add-to-cart').removeEventListener('click', add)
@@ -459,11 +416,73 @@
   // 플로팅 창 닫기 버튼
   document.querySelector('#close-popup').addEventListener('click', function() {
     document.querySelector('.product-popup').style.display = 'none';
+    resetSelectedLabels();
   });
+
+  function resetSelectedLabels() {
+    const inputElements = document.querySelectorAll('input[type="radio"], input[type="checkbox"]');
+    inputElements.forEach((inputElement) => {
+      inputElement.checked = false;
+    });
+  }
 
   // products.json 파일을 불러와서 제품 정보를 처리
   loadProducts();
 
+  // "샌드위치" 버튼 클릭 시
+  document.querySelector('.sandwich_button').addEventListener('click', function() {
+    showTable('sandwich_table');
+    showOptionsForLabels('.product-options', '.breadOptions', '.sauceLabel', '.cheeseLabel', '.vegetableLabel', '.option_select_text');
+  });
+
+  // "샐러드" 버튼 클릭 시
+  document.querySelector('.salad_button').addEventListener('click', function() {
+    showTable('salad_table');
+    showOptionsForLabels('.product-options', '.breadOptions', '.cheeseLabel', '.sauceLabel', '.vegetableLabel', '.option_select_text');
+    hideOptionsForLabels('.breadOptions');
+  });
+
+  // "사이드 & 음료" 버튼 클릭 시
+  document.querySelector('.beverage_button').addEventListener('click', function() {
+    showTable('beverage_table');
+    showOptionsForLabels('.product-options', '.breadOptions', '.sauceLabel', '.cheeseLabel', '.vegetableLabel');
+    hideOptionsForLabels('.product-options');
+  });
+
+  // "랩/기타" 버튼 클릭 시
+  document.querySelector('.lab_button').addEventListener('click', function() {
+    showTable('lab_table');
+    showOptionsForLabels('.product-options', '.breadOptions', '.sauceLabel', '.cheeseLabel', '.vegetableLabel');
+    hideOptionsForLabels('.product-options');
+  });
+
+  // 라벨 숨기기 함수
+  function hideOptionsForLabels(...labels) {
+    for (const label of labels) {
+      const labelElements = document.querySelectorAll(label);
+      labelElements.forEach((labelElement) => {
+        labelElement.style.display = 'none';
+      });
+    }
+  }
+
+  function showOptionsForLabels(...labels) {
+    for (const label of labels) {
+      const labelElements = document.querySelectorAll(label);
+      labelElements.forEach((labelElement) => {
+        labelElement.style.display = 'block';
+      });
+    }
+  }
+
+  // 테이블 표시 함수
+  function showTable(tableId) {
+    const tables = document.querySelectorAll('table');
+    tables.forEach((table) => {
+      table.style.display = 'none';
+    });
+    document.getElementById(tableId).style.display = 'table';
+  }
 
   const sandwichButton = document.querySelector('.sandwich_button');
   const saladButton = document.querySelector('.salad_button');
