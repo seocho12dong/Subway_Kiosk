@@ -311,9 +311,14 @@
     let total = 0;
 
     for (let i = 0; i < cart.length; i++) {
-      total += cart[i].price;
+      let itemText = `${cart[i].name} `;
+      if (cart[i].name.includes("샌드위치") || cart[i].name.includes("샐러드")) {
+        itemText += `(${cart[i].options})`;
+      }
+      itemText += `: ${cart[i].price}원`;
+
       const itemElement = document.createElement('div');
-      itemElement.textContent = `${cart[i].name} (${cart[i].options}): ${cart[i].price}원`;
+      itemElement.textContent = itemText;
 
       // "삭제" 버튼을 추가하고 해당 버튼을 클릭하면 아이템을 장바구니에서 제거
       const deleteButton = document.createElement('button');
