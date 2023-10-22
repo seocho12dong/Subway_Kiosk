@@ -53,7 +53,7 @@ a {
     left: 0;
     top: 0;
     padding: 10px;
-    border-right: 1px solid #ccc;
+    border-right: 3px solid green;
     height: 100%;
     width: 200px;
     display: flex; /* Flexbox 레이아웃 사용 */
@@ -67,10 +67,43 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative; /* 부모 요소에 position: relative; 추가 */
+}
+
+.indicator {
+    width: 10px;
+    height: 120px;
+    background-color: #ffca06;
+    position: absolute;
+    top: 10px; /* 원하는 위치로 조절 */
+    left: 10px; /* 원하는 위치로 조절 */
+    z-index: 3; /* 더 높은 z-index 값으로 설정 */
+    display: none;
+    transform: translate(102px, -270px);
 }
 
 .menu_button img {
-    width: 80%;
+    width: 90%;
+}
+
+.sandwich_button {
+    font-size: 20px;
+    border: 0;
+}
+
+.salad_button {
+    font-size: 20px;
+    border: 0;
+}
+
+.lab_button {
+    font-size: 20px;
+    border: 0;
+}
+
+.beverage_button {
+    font-size: 20px;
+    border: 0;
 }
 
 .button {
@@ -266,8 +299,10 @@ a {
     display: flex;
     top: 0%;
     width: 200px;
+    height: 50px;
     position: absolute;
     right: 0px;
+    border-radius: 0px 0px 20px 0px;
 }
 
 .product-details {
@@ -297,7 +332,9 @@ a {
     top : 50%;
     left : 50%;
     transform: translate(-50%, -50%);
-    width: 300px;
+    height: 800px;
+    width: 700px;
+    font-size: 20px;
 }
 
 
@@ -326,7 +363,6 @@ a {
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
 
 img {
     width: 90%;

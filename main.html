@@ -21,11 +21,16 @@
 <div class="menu_bar">
   <div class="menu_button">
     <button class="sandwich_button"><a class="special-link button"><img src="images/sandwich.png"><br>샌드위치</a></button>
+    <div class="indicator"></div>
     <button class="salad_button" data-target="salad_table"><img src="images/salad.png"><br>샐러드</button>
-    <button class="lab_button" data-target="lab_table"><img src="images/lab.png"><br>랩/기타</button>
+    <div class="indicator"></div>
+    <button class="lab_button" data-target="lab_table"><img src="images/lab.png"><br>랩</button>
+    <div class="indicator"></div>
     <button class="beverage_button" data-target="beverage_table"><img src="images/beverage.png"><br>사이드 & 음료</button>
+    <div class="indicator"></div>
   </div>
 </div>
+
 <div class="main_content">
   <table id="sandwich_table">
     <tbody>
@@ -276,6 +281,9 @@
   </div>
 </div>
 
+<div class="product-charge">
+
+</div>
 
 
 <script>
@@ -302,14 +310,34 @@
 
     let total = 0;
 
-    for (const item of cart) {
-      total += item.price;
+    for (let i = 0; i < cart.length; i++) {
+      total += cart[i].price;
       const itemElement = document.createElement('div');
-      itemElement.textContent = `${item.name} (${item.options}): ${item.price}원`;
+      itemElement.textContent = `${cart[i].name} (${cart[i].options}): ${cart[i].price}원`;
+
+      // "삭제" 버튼을 추가하고 해당 버튼을 클릭하면 아이템을 장바구니에서 제거
+      const deleteButton = document.createElement('button');
+      deleteButton.classList.add('delete-button'); // 스타일 클래스 추가
+      deleteButton.textContent = ''; // 빈 문자열로 설정
+
+      // "x_black" 이미지를 deleteButton 버튼의 배경 이미지로 설정
+      deleteButton.style.backgroundImage = 'url("images/x_black.png")';
+      deleteButton.style.backgroundSize = '20px 20px'; // 이미지 크기 조정
+      deleteButton.style.width = '23px'; // 버튼의 너비 조정
+      deleteButton.style.height = '23px'; // 버튼의 높이 조정
+      deleteButton.dataset.index = i; // 아이템 인덱스를 저장
+
+      deleteButton.addEventListener('click', function() {
+        const index = this.dataset.index;
+        cart.splice(index, 1); // 아이템을 장바구니에서 제거
+        showShoppingCart(); // 장바구니를 업데이트하고 다시 표시
+      });
+
+      itemElement.appendChild(deleteButton);
       basketItems.appendChild(itemElement);
     }
 
-    totalPrice.textContent = '합계: ' + total + '원';
+    totalPrice.textContent = `합계: ${total}원`;
   }
 
   function hideShoppingCart() {
@@ -319,98 +347,106 @@
   // JSON 처리
   function loadProducts() {
     fetch('products.json')
-            .then(response => response.json())
-            .then(productsData => {
-              var imageElements = document.querySelectorAll('#sandwich_table img, #salad_table img, #lab_table img, #beverage_table img');
-              imageElements.forEach(function(img) {
-                img.addEventListener('click', function(event) {
-                  // console.log(event)
-                  var productName = event.target.dataset.product;
-                  // console.log(productName)
-                  var productInfo = productsData[productName];
-                  if (productInfo) {
-                    var productName = productInfo.name;
-                    var productPrice = productInfo.price;
-                    var productImage = productInfo.img;
+      .then(response => response.json())
+      .then(productsData => {
+        var imageElements = document.querySelectorAll('#sandwich_table img, #salad_table img, #lab_table img, #beverage_table img');
+        imageElements.forEach(function(img) {
+          img.addEventListener('click', function(event) {
+            // console.log(event)
+            var productName = event.target.dataset.product;
+            // console.log(productName)
+            var productInfo = productsData[productName];
+            if (productInfo) {
+              var productName = productInfo.name;
+              var productPrice = productInfo.price;
+              var productImage = productInfo.img;
 
-                    document.getElementById('product-name').textContent = productName;
-                    document.getElementById('product-price').textContent = '가격: ' + productPrice + '원';
+              document.getElementById('product-name').textContent = productName;
+              document.getElementById('product-price').textContent = '가격: ' + productPrice + '원';
 
-                    document.getElementById('product-image').src = productImage;
+              document.getElementById('product-image').src = productImage;
 
-                    // "장바구니에 담기" 버튼 클릭 시
+              // "장바구니에 담기" 버튼 클릭 시
 
-                    function add() {
-                      // console.log(productName)
-                      const selectedOptions = {
-                        breadSize: [],
-                        breadToasting: [],
-                        bread: [],
-                        cheese: [],
-                        sauce: [],
-                        vegetable: []
-                      };
+              function add() {
+                // console.log(productName)
+                const selectedOptions = {
+                  breadSize: [],
+                  breadToasting: [],
+                  bread: [],
+                  cheese: [],
+                  sauce: [],
+                  vegetable: []
+                };
 
-                      const breadSizeRadios = document.querySelectorAll('input[name="breadSize"]');
-                      breadSizeRadios.forEach((radio) => {
-                        if (radio.checked) {
-                          selectedOptions.breadSize.push(radio.value);
-                        }
-                      });
-
-                      const breadToastingRadios = document.querySelectorAll('input[name="breadToasting"]');
-                      breadToastingRadios.forEach((radio) => {
-                        if (radio.checked) {
-                          selectedOptions.breadToasting.push(radio.value);
-                        }
-                      });
-
-                      const breadRadios = document.querySelectorAll('input[name="bread"]');
-                      breadRadios.forEach((radio) => {
-                        if (radio.checked) {
-                          selectedOptions.bread.push(radio.value);
-                        }
-                      });
-
-                      const cheeseRadios = document.querySelectorAll('input[name="cheese"]');
-                      cheeseRadios.forEach((radio) => {
-                        if (radio.checked) {
-                          selectedOptions.cheese.push(radio.value);
-                        }
-                      });
-
-                      const sauceCheckboxes = document.querySelectorAll('input[name="sauce"]');
-                      sauceCheckboxes.forEach((checkbox) => {
-                        if (checkbox.checked) {
-                          selectedOptions.sauce.push(checkbox.value);
-                        }
-                      });
-
-                      const vegetableCheckboxes = document.querySelectorAll('input[name="vegetable"]');
-                      vegetableCheckboxes.forEach((checkbox) => {
-                        if (checkbox.checked) {
-                          selectedOptions.vegetable.push(checkbox.value);
-                        }
-                      });
-
-                      const selectedOptionsString = Object.values(selectedOptions).filter(Boolean).join(', ');
-
-
-                      cart.push({
-                        name: productName,
-                        price: productPrice,
-                        options: selectedOptionsString
-                      });
-                      alert('장바구니에 제품이 추가되었습니다.');
-                      document.getElementById('add-to-cart').removeEventListener('click', add)
-                    }
-                    document.getElementById('add-to-cart').addEventListener('click', add)
-                    // console.log(document.getElementById('add-to-cart'))
-                    document.querySelector('.product-popup').style.display = 'block';
+                const breadSizeRadios = document.querySelectorAll('input[name="breadSize"]');
+                breadSizeRadios.forEach((radio) => {
+                  if (radio.checked) {
+                    selectedOptions.breadSize.push(radio.value);
                   }
                 });
-              });
-            })
+
+                const breadToastingRadios = document.querySelectorAll('input[name="breadToasting"]');
+                breadToastingRadios.forEach((radio) => {
+                  if (radio.checked) {
+                    selectedOptions.breadToasting.push(radio.value);
+                  }
+                });
+
+                const breadRadios = document.querySelectorAll('input[name="bread"]');
+                breadRadios.forEach((radio) => {
+                  if (radio.checked) {
+                    selectedOptions.bread.push(radio.value);
+                  }
+                });
+
+                const cheeseRadios = document.querySelectorAll('input[name="cheese"]');
+                cheeseRadios.forEach((radio) => {
+                  if (radio.checked) {
+                    selectedOptions.cheese.push(radio.value);
+                  }
+                });
+
+                const sauceCheckboxes = document.querySelectorAll('input[name="sauce"]');
+                sauceCheckboxes.forEach((checkbox) => {
+                  if (checkbox.checked) {
+                    selectedOptions.sauce.push(checkbox.value);
+                  }
+                });
+
+                const vegetableCheckboxes = document.querySelectorAll('input[name="vegetable"]');
+                vegetableCheckboxes.forEach((checkbox) => {
+                  if (checkbox.checked) {
+                    selectedOptions.vegetable.push(checkbox.value);
+                  }
+                });
+
+                const selectedOptionsText = [];
+                const optionGroups = ['breadSize', 'breadToasting', 'bread', 'cheese', 'sauce', 'vegetable'];
+                optionGroups.forEach(group => {
+                  if (selectedOptions[group].length > 0) {
+                    selectedOptionsText.push(selectedOptions[group].join(', '));
+                  }
+                });
+
+                let selectedOptionsString = selectedOptionsText.join(' | ');
+
+
+                cart.push({
+                  name: productName,
+                  price: productPrice,
+                  options: selectedOptionsString
+                });
+                alert('장바구니에 제품이 추가되었습니다.');
+                document.getElementById('add-to-cart').removeEventListener('click', add)
+              }
+              document.getElementById('add-to-cart').addEventListener('click', add)
+              // console.log(document.getElementById('add-to-cart'))
+              document.querySelector('.product-popup').style.display = 'block';
+            }
+          });
+        });
+      })
   }
 
 
@@ -458,6 +494,7 @@
     hideOptionsForLabels('.product-options');
   });
 
+
   // 라벨 숨기기 함수
   function hideOptionsForLabels(...labels) {
     for (const label of labels) {
@@ -477,6 +514,11 @@
     }
   }
 
+  document.addEventListener("DOMContentLoaded", function() {
+    // 페이지가 로드되면 초기 인디케이터 위치 설정
+    moveIndicator(sandwichButton);
+  });
+
   // 테이블 표시 함수
   function showTable(tableId) {
     const tables = document.querySelectorAll('table');
@@ -490,6 +532,17 @@
   const saladButton = document.querySelector('.salad_button');
   const labButton = document.querySelector('.lab_button');
   const beverageButton = document.querySelector('.beverage_button');
+  const indicator = document.querySelector('.indicator');
+
+  function moveIndicator(button) {
+    const buttonRect = button.getBoundingClientRect();
+    const indicatorRect = indicator.getBoundingClientRect();
+
+    indicator.style.display = 'block';
+    indicator.style.top = buttonRect.bottom + 'px';
+    indicator.style.left = buttonRect.left + buttonRect.width / 2 - indicatorRect.width / 2 + 'px';
+  }
+
   const sandwichTable = document.getElementById('sandwich_table');
   const saladTable = document.getElementById('salad_table');
   const labTable = document.getElementById('lab_table');
@@ -500,6 +553,7 @@
     saladTable.style.display = 'none';
     labTable.style.display = 'none';
     beverageTable.style.display = 'none';
+    moveIndicator(sandwichButton);
   });
 
   saladButton.addEventListener('click', () => {
@@ -507,6 +561,7 @@
     sandwichTable.style.display = 'none';
     beverageTable.style.display = 'none';
     labTable.style.display = 'none';
+    moveIndicator(saladButton);
   });
 
   labButton.addEventListener('click', () => {
@@ -514,6 +569,7 @@
     saladTable.style.display = 'none';
     sandwichTable.style.display = 'none';
     beverageTable.style.display = 'none';
+    moveIndicator(labButton);
   })
 
   beverageButton.addEventListener('click', () => {
@@ -521,6 +577,7 @@
     saladTable.style.display = 'none';
     sandwichTable.style.display = 'none';
     labTable.style.display = 'none';
+    moveIndicator(beverageButton);
   } )
 </script>
 </body>
