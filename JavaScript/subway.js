@@ -324,8 +324,12 @@ function showProductCharge() {
     const finalChargeBar = document.querySelector('.final-charge-bar');
     finalChargeBar.style.display = 'block';
 
+    const creditCardCharge = document.querySelector('.charge-by-card');
+    creditCardCharge.style.display = 'block';
     const naverPayCharge = document.querySelector('.charge-by-naverpay');
+    naverPayCharge.style.display = 'block';
     const kakaoPayCharge = document.querySelector('.charge-by-kakaopay');
+    kakaoPayCharge.style.display = 'block';
 
     // totalPrice 변수의 값을 가져와서 final-charge-bar 요소에 표시
     finalChargeBar.textContent = `결제액 ${totalPrice.textContent}`;

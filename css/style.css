@@ -53,6 +53,7 @@ p {
 }
 
 .menu_bar {
+    background-color: #EFEFEF;
     margin-top: 100px;
     position: fixed;
     left: 0;
@@ -171,7 +172,7 @@ p {
     transform: translate(-50%, -50%);
     background-color: #fff;
     z-index: 9998;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
     width: 800px; /* 너비를 400px로 설정 (조절 가능) */
     height: 1000px; /* 높이를 300px로 설정 (조절 가능) */
     display: none;
@@ -235,7 +236,7 @@ p {
     transform: translate(-50%, -50%);
     background-color: white;
     z-index: 9999;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
     width: 800px;
     height: 1000px;
     display: none;
@@ -375,21 +376,21 @@ p {
     transform: translate(-50%, -50%);
     background-color: white;
     z-index: 10000;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
     width: 800px;
-    height: 1000px;
+    height: 700px;
     display: none;
     border-radius: 20px 20px 20px 20px;
 }
 
 .product-charge-main {
     position: fixed;
-    top : 53%;
+    top : 50%;
     left : 50%;
     transform: translate(-50%, -50%);
-    background-color: green;
+    background-color: white;
     width: 720px;
-    height: 850px;
+    height: 300px;
     z-index: 10001;
     display: none;
 }
@@ -428,28 +429,48 @@ p {
 .charge-by-card {
     position: fixed;
     background-color: white;
+    height: 300px;
+    width: 300px;
+    top : 30%;
+    left : 23%;
+    transform: translate(-50%, -50%);
+    border: 3px solid black
 }
 
 .charge-by-kakaopay {
     position: fixed;
     background-color: white;
+    height: auto;
+    width: 370px;
+    top: -21%;
+    left : 44%;
+    border: 3px solid black
 }
 
 .charge-by-naverpay {
     position: fixed;
     background-color: white;
+    height: auto;
+    width: 370px;
+    right: 10px;
+    top : 30.2%;
+    left : 44%;
+    border: 3px solid black
 }
 
 .final-charge-bar {
     color: #2E3238;
-    top : 85%;
-    left : 75%;
+    top : 150%;
+    left : 48%;
     transform: translate(-50%, -50%);
     font-size: 50px;
     display: flex;
     align-items: center; /* 수직 가운데 정렬 */
-    width: 250px;
+    border-top: 3px solid green;
+    width: 650px;
+    height: 150px;
     position: fixed;
+    padding-top: 40px;
     padding-right: 20px;
 }
 

@@ -168,14 +168,14 @@
     </div>
     <div class="breadOptions">
       <div class="breadSizeLabel">
-        <label>
-          <input type="radio" name="breadSize" data-group="breadSize" value="15cm">
-          15cm
-        </label>
-        <label>
-          <input type="radio" name="breadSize" data-group="breadSize" value="30cm">
-          30cm (+4800)
-        </label>
+<!--        <label>-->
+<!--          <input type="radio" name="breadSize" data-group="breadSize" value="15cm">-->
+<!--          15cm-->
+<!--        </label>-->
+<!--        <label>-->
+<!--          <input type="radio" name="breadSize" data-group="breadSize" value="30cm" id="size30cm">-->
+<!--          30cm (+4800)-->
+<!--        </label>-->
         <br>
         <label>
           <input type="radio" name="breadToasting" data-group="breadToasting" value="토스팅">
@@ -302,20 +302,11 @@
     <button id="close-charge"><img src="images/x.png"></button>
   </div>
   <div class="product-charge-main">
-    <div class="charge-by-card">
-
-    </div>
-    <div class="charge-by-kakaopay">
-
-    </div>
-    <div class="charge-by-naverpay">
-
-    </div>
+    <img src="images/creditcard.png" class="charge-by-card"></img>
+    <img src="images/kakaopay.jpeg" class="charge-by-kakaopay"></img>
+    <img src="images/naverpay.png" class="charge-by-naverpay"></img>
     <div class="final-charge-bar"></div>
   </div>
-<!--  <div class="product-charge-footer">-->
-<!--    <div class=""-->
-<!--  </div>-->
 </div>
 <!--<script src="JavaScript/subway.js"></script>-->
 <script>
@@ -645,15 +636,15 @@
     const finalChargeBar = document.querySelector('.final-charge-bar');
     finalChargeBar.style.display = 'block';
 
+    const creditCardCharge = document.querySelector('.charge-by-card');
+    creditCardCharge.style.display = 'block';
     const naverPayCharge = document.querySelector('.charge-by-naverpay');
+    naverPayCharge.style.display = 'block';
     const kakaoPayCharge = document.querySelector('.charge-by-kakaopay');
+    kakaoPayCharge.style.display = 'block';
 
     // totalPrice 변수의 값을 가져와서 final-charge-bar 요소에 표시
     finalChargeBar.textContent = `결제액 ${totalPrice.textContent}`;
-
-
-    // totalPrice = document.querySelector('.final-charge-bar')
-    // console.log('Total Price:', totalPrice);
   }
 
   function hideProductCharge() {
