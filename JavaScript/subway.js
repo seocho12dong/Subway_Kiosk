@@ -74,7 +74,7 @@ function hideShoppingCart() {
 
 // JSON 처리
 function loadProducts() {
-    fetch('/json/products.json')
+    fetch('json/products.json')
         .then(response => response.json())
         .then(productsData => {
             var imageElements = document.querySelectorAll('#sandwich_table img, #salad_table img, #lab_table img, #beverage_table img');
