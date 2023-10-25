@@ -1,0 +1,262 @@
+{
+  "sandwich_eggmayo": {
+    "name": "에그마요 샌드위치",
+    "price": 4900,
+    "img": "images/sandwich/sandwich_eggmayo.png"
+  },
+  "sandwich_italianBMT": {
+    "name": "이탈리안 비엠티 샌드위치",
+    "price": 6100,
+    "img": "images/sandwich/sandwich_italianBMT.png"
+  },
+  "sandwich_BLT": {
+    "name": "비엘티 샌드위치",
+    "price": 6000,
+    "img": "images/sandwich/sandwich_BLT.png"
+  },
+  "sandwich_chickenDeriyaki": {
+    "name": "치킨 데리야끼 샌드위치",
+    "price": 6400,
+    "img": "images/sandwich/sandwich_chickenDeriyaki.png"
+  },
+  "sandwich_chickenBaconAbocado": {
+    "name": "치킨 베이컨 아보카도 샌드위치",
+    "price": 7400,
+    "img": "images/sandwich/sandwich_chickenBaconAbocado.png"
+  },
+  "sandwich_bbq": {
+    "name": "로티세리 바비큐 치킨 샌드위치",
+    "price": 6700,
+    "img": "images/sandwich/sandwich_bbq.png"
+  },
+  "sandwich_chickenSlice": {
+    "name": "치킨 슬라이스 샌드위치",
+    "price": 5900,
+    "img": "images/sandwich/sandwich_chickenSlice.png"
+  },
+  "sandwich_club": {
+    "name": "써브웨이 클럽 샌드위치",
+    "price": 6500,
+    "img": "images/sandwich/sandwich_club.png"
+  },
+  "sandwich_ham": {
+    "name": "햄 샌드위치",
+    "price": 5200,
+    "img": "images/sandwich/sandwich_ham.png"
+  },
+  "sandwich_hamEggCheese": {
+    "name": "햄, 에그&치즈 샌드위치",
+    "price": 7400,
+    "img": "images/sandwich/sandwich_hamEggCheese.png"
+  },
+  "sandwich_porkBBQ": {
+    "name": "풀드 포크 바비큐 샌드위치",
+    "price": 6600,
+    "img": "images/sandwich/sandwich_porkBBQ.png"
+  },
+  "sandwich_roastedChicken": {
+    "name": "로스트 치킨 샌드위치",
+    "price": 6700,
+    "img": "images/sandwich/sandwich_roastedChicken.png"
+  },
+  "sandwich_shrimp": {
+    "name": "쉬림프 샌드위치",
+    "price": 6500,
+    "img": "images/sandwich/sandwich_shrimp.png"
+  },
+  "sandwich_spicyItalian": {
+    "name": "스파이시 이탈리안 샌드위치",
+    "price": 6300,
+    "img": "images/sandwich/sandwich_spicyItalian.png"
+  },
+  "sandwich_SteakCheese": {
+    "name": "스테이크&치즈 샌드위치",
+    "price": 7400,
+    "img": "images/sandwich/sandwich_SteakCheese.png"
+  },
+  "sandwich_vegi": {
+    "name": "베지 샌드위치",
+    "price": 4400,
+    "img": "images/sandwich/sandwich_vegi.png"
+  },
+  "sandwich_westernEggCheese": {
+    "name": "웨스턴, 에그 & 치즈 샌드위치",
+    "price": 6700,
+    "img": "images/sandwich/sandwich_westernEggCheese.png"
+  },
+  "salad_BBQChicken": {
+    "name": "로티세리 바비큐 치킨 샐러드",
+    "price": 8400,
+    "img": "images/salad/salad_BBQChicken.png"
+  },
+  "salad_BLT": {
+    "name": "비엘티 샐러드",
+    "price": 7700,
+    "img": "images/salad/salad_BLT.png"
+  },
+  "salad_ChickenBaconAbocado": {
+    "name": "치킨 베이컨 아보카도 샐러드",
+    "price": 9100,
+    "img": "images/salad/salad_ChickenBaconAbocado.png"
+  },
+  "salad_chickenDeriyaki": {
+    "name": "치킨 데리야끼 샐러드",
+    "price": 8100,
+    "img": "images/salad/salad_chickenDeriyaki.png"
+  },
+  "salad_chickenSlice": {
+    "name": "치킨 슬라이스 샐러드",
+    "price": 7600,
+    "img": "images/salad/salad_chickenSlice.png"
+  },
+  "salad_club": {
+    "name": "써브웨이 클럽 샐러드",
+    "price": 8200,
+    "img": "images/salad/salad_club.png"
+  },
+  "salad_eggMayo": {
+    "name": "에그마요 샐러드",
+    "price": 6600,
+    "img": "images/salad/salad_eggMayo.png"
+  },
+  "salad_fulledBBQ": {
+    "name": "풀드 포크 바비큐 샐러드",
+    "price": 8300,
+    "img": "images/salad/salad_fulledBBQ.png"
+  },
+  "salad_ham": {
+    "name": "햄 샐러드",
+    "price": 6900,
+    "img": "images/salad/salad_ham.png"
+  },
+  "salad_italianBMT": {
+    "name": "이탈리안 비엠티 샐러드",
+    "price": 7800,
+    "img": "images/salad/salad_italianBMT.png"
+  },
+  "salad_KBBQ": {
+    "name": "K-바비큐 샐러드",
+    "price": 8400,
+    "img": "images/salad/salad_KBBQ.png"
+  },
+  "salad_newShrimp": {
+    "name": "New 쉬림프 샐러드",
+    "price": 8400,
+    "img": "images/salad/salad_newShrimp.png"
+  },
+  "salad_RoastedChicken": {
+    "name": "로스트 치킨 샐러드",
+    "price": 8200,
+    "img": "images/salad/salad_RoastedChicken.png"
+  },
+  "salad_spicyItalian": {
+    "name": "스파이시 이탈리안 샐러드",
+    "price": 8000,
+    "img": "images/salad/salad_spicyItalian.png"
+  },
+  "salad_spicyShrimp": {
+    "name": "New 스파이시 쉬림프 샐러드",
+    "price": 8200,
+    "img": "images/salad/salad_spicyShrimp.png"
+  },
+  "salad_steakCheese": {
+    "name": "스테이크 & 치즈 샐러드",
+    "price": 9100,
+    "img": "images/salad/salad_steakCheese.png"
+  },
+  "salad_tuna": {
+    "name": "참치 샐러드",
+    "price": 6900,
+    "img": "images/salad/salad_tuna.png"
+  },
+  "salad_vegi": {
+    "name": "베지 샐러드",
+    "price": 6100,
+    "img": "images/salad/salad_vegi.png"
+  },
+  "wrap_chickenBaconMini": {
+    "name": "치킨 베이컨 미니 랩",
+    "price": 3400,
+    "img": "images/wrap/wrap_chickenBaconMini.png"
+  },
+  "wrap_shrimpEggMayo": {
+    "name": "쉬림프 에그마요 랩",
+    "price": 5300,
+    "img": "images/wrap/wrap_shrimpEggMayo.png"
+  },
+  "wrap_steakCheeseAvocado": {
+    "name": "스테이크 & 치즈 아보카도 랩",
+    "price": 6000,
+    "img": "images/wrap/wrap_steakCheeseAvocado.png"
+  },
+  "beverage_soda": {
+    "name": "탄산음료",
+    "price": 2000,
+    "img": "images/beverage/beverage_soda.png"
+  },
+  "beverage_coffee": {
+    "name": "커피",
+    "price": 2000,
+    "img": "images/beverage/beverage_coffee.png"
+  },
+  "beverage_hashBrown": {
+    "name": "해쉬브라운",
+    "price": 1800,
+    "img": "images/beverage/beverage_hashBrown.png"
+  },
+  "beverage_cheesy": {
+    "name": "웨지 포테이토",
+    "price": 2400,
+    "img": "images/beverage/beverage_cheesy.png"
+  },
+  "beverage_cheesybacon": {
+    "name": "Bacon Cheesy 웨지 포테이토",
+    "price": 2700,
+    "img": "images/beverage/beverage_cheesybacon.png"
+  },
+  "beverage_chip": {
+    "name": "칩",
+    "price": 2200,
+    "img": "images/beverage/beverage_chip.png"
+  },
+  "beverage_chip_chocolate": {
+    "name": "초코칩",
+    "price": 1300,
+    "img": "images/beverage/beverage_chip_chocolate.png"
+  },
+  "beverage_chip_doubleChocolate": {
+    "name": "더블 초코칩",
+    "price": 1300,
+    "img": "images/beverage/beverage_chip_doubleChocolate.png"
+  },
+  "beverage_chip_oatmealRaisin": {
+    "name": "오트밀 레이즌",
+    "price": 1300,
+    "img": "images/beverage/beverage_chip_oatmealRaisin.png"
+  },
+  "beverage_chip_raspberryCheese": {
+    "name": "라즈베리 치즈케익",
+    "price": 1300,
+    "img": "images/beverage/beverage_chip_raspberryCheese.png"
+  },
+  "beverage_chip_whiteChocoMacadamia": {
+    "name": "화이트 초코 마카다미아",
+    "price": 1300,
+    "img": "images/beverage/beverage_chip_whiteChocoMacadamia.png"
+  },
+  "beverage_soup_bakedPotato": {
+    "name": "베이크 포테이토 수프",
+    "price": 3200,
+    "img": "images/beverage/beverage_soup_bakedPotato.png"
+  },
+  "beverage_soup_broccoliCheddar": {
+    "name": "브로콜리 체다 수프",
+    "price": 3200,
+    "img": "images/beverage/beverage_soup_broccoliCheddar.png"
+  },
+  "beverage_soup_mushroom": {
+    "name": "머쉬룸 수프",
+    "price": 3200,
+    "img": "images/beverage/beverage_soup_mushroom.png"
+  }
+}

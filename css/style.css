@@ -8,6 +8,11 @@ a {
     color: inherit;
 }
 
+p {
+    margin: 20px 0; /* 위아래 여백 조정 */
+    white-space: pre; /* 공백 및 줄바꿈 유지 */
+}
+
 .header {
     position: fixed;
     top: 0%;
@@ -337,7 +342,6 @@ a {
     font-size: 20px;
 }
 
-
 .product-options {
     width: 700px;
     height: 500px;
@@ -364,6 +368,102 @@ a {
     transform: translate(-50%, -50%);
 }
 
+.product-charge {
+    position: fixed;
+    top : 50%;
+    left : 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    z-index: 10000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 800px;
+    height: 1000px;
+    display: none;
+    border-radius: 20px 20px 20px 20px;
+}
+
+.product-charge-main {
+    position: fixed;
+    top : 53%;
+    left : 50%;
+    transform: translate(-50%, -50%);
+    background-color: green;
+    width: 720px;
+    height: 850px;
+    z-index: 10001;
+    display: none;
+}
+
+.product-charge-header {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    background-color: #009506;
+    width: 800px;
+    height: 70px;
+    padding: 0px;
+    border-radius: 20px 20px 0px 0px;
+}
+
+#product-charge_logo {
+    position: fixed;
+    background-color:rgba(0, 0, 0, 0);
+    left: 15px;
+    top: 10px;
+    width: 50px;
+    border: 0;
+}
+
+#close-charge {
+    position: fixed;
+    background-color:rgba(0, 0, 0, 0);
+    right: 3px;
+    top: -5px;
+    width: 65px;
+    border: 0;
+    display: block;
+    margin-top: 10px;
+}
+
+.charge-by-card {
+    position: fixed;
+    background-color: white;
+}
+
+.charge-by-kakaopay {
+    position: fixed;
+    background-color: white;
+}
+
+.charge-by-naverpay {
+    position: fixed;
+    background-color: white;
+}
+
+.final-charge-bar {
+    color: #2E3238;
+    top : 85%;
+    left : 75%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    display: flex;
+    align-items: center; /* 수직 가운데 정렬 */
+    width: 250px;
+    position: fixed;
+    padding-right: 20px;
+}
+
+/*.product-charge-footer {*/
+/*    position: fixed;*/
+/*    bottom: 0%;*/
+/*    left: 0%;*/
+/*    background-color: #ffca06;*/
+/*    width: 800px;*/
+/*    height: 70px;*/
+/*    padding: 0px;*/
+/*    border-radius: 0px 0px 20px 20px;*/
+/*}*/
+
 img {
     width: 90%;
 }
@@ -375,4 +475,8 @@ td {
     font-size: 25px;
 
     height: 300px;
+}
+
+.cart-item {
+    margin-bottom: 20px;
 }
